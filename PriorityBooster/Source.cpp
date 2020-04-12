@@ -82,6 +82,7 @@ NTSTATUS PriorityBoosterDeviceControl(PDEVICE_OBJECT, PIRP Irp) {
 	case IOCTL_PRIORITY_BOOSTER_SET_PRIORITY: {
 		if (stack->Parameters.DeviceIoControl.InputBufferLength < sizeof(ThreadData)) {
 			status = STATUS_BUFFER_TOO_SMALL;
+			break;
 		}
 
 		// Get the data from the IO_STACK DeviceIoControlParameter struct 
